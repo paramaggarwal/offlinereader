@@ -14,8 +14,7 @@ var manifestConfig = {
       dir: '/public/images',
       prefix: '/images/'
     }
-  ],
-  use_fs_watch: true //for debugging without caching
+  ]
 }
 
 var app = express();
@@ -26,7 +25,7 @@ app.engine('html', require('hogan-express'));
 
 app.use(express.favicon());
 app.use(express.logger('dev'));
-//app.use(offline(manifestConfig));
+app.use(offline(manifestConfig));
 app.use(express.bodyParser());
 app.use(app.router);
 app.use(express.static('public'));
