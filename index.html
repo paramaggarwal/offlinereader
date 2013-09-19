@@ -1,13 +1,10 @@
 <!doctype html>
-<html>
+<html manifest="/cache.manifest">
 <head>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="./turn.min.js"></script>
 
 <style type="text/css">
-body{
-	background:#ccc;
-}
 #book{
 	width:800px;
 	height:500px;
@@ -73,9 +70,10 @@ body{
 </style>
 </head>
 <body>
+<h1>Param's Offline Book Reader</h1>
 
 <div id="book">
-	<div class="cover"><h1>The Bible</h1></div>
+	<div class="cover"><h1>Param's Offline Book Reader</h1></div>
 </div>
 
 <div id="controls">
@@ -97,7 +95,7 @@ body{
 			var element = $('<div />', {'class': 'page '+((page%2==0) ? 'odd' : 'even'), 'id': 'page-'+page}).html('<i class="loader"></i>');
 			// If not then add the page
 			book.turn('addPage', element, page);
-			// Let's assum that the data is comming from the server and the request takes 1s.
+			// Let's assume that the data is coming from the server and the request takes 1s.
 			setTimeout(function(){
 					element.html('<div class="data">Data for page '+page+'</div>');
 			}, 1000);
